@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>OVNotes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     DISCLAIMER OVERLAY
+═══════════════════════════════════ -->
+<div id="disclaimer-overlay">
+  <div id="disclaimer-box">
+    <h2>OVNotes</h2>
+    <p>Jag har förstått att appen är endast för utbildning och att jag använder den helt på eget ansvar.</p>
+    <div class="disc-radios">
+      <label class="disc-radio"><input type="radio" name="disc" value="ja" id="disc-ja"> JA</label>
+      <label class="disc-radio"><input type="radio" name="disc" value="nej" id="disc-nej" checked> NEJ</label>
+    </div>
+    <button id="btn-confirm" disabled onclick="enterApp()">Bekräfta</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     HOME SCREEN
+═══════════════════════════════════ -->
+<div id="home-screen" class="screen">
+  <div class="topbar-home">
+    <span class="topbar-title">OVNotes</span>
+  </div>
+  <div class="scroll-body">
+    <div class="home-content">
+      <div class="search-row">
+        <input class="search-input" id="search-input" type="search"
+          placeholder="Sök befogenhet, lag…"
+          oninput="doSearch(this.value)" autocomplete="off">
+        <button class="search-btn" onclick="doSearch(document.getElementById('search-input').value)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          Sök
+        </button>
+      </div>
+      <div class="section-label">Operativa snabbval</div>
+      <div class="cat-grid" id="cat-grid"></div>
+      <div id="search-results" style="margin-top:12px;display:none;"></div>
+    </div>
+  </div>
+  <nav class="bottom-nav" id="nav-home"></nav>
+</div>
+
+<!-- ═══════════════════════════════════
+     DETAIL SCREEN (Sida 2)
+═══════════════════════════════════ -->
+<div id="detail-screen" class="screen">
+  <div class="topbar-2row">
+    <div class="row-title">OVNotes</div>
+    <div class="row-back">
+      <button class="btn-back" onclick="showScreen('home-screen')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Tillbaka
+      </button>
+    </div>
+  </div>
+  <div class="scroll-body">
+    <div class="detail-content" id="detail-content"></div>
+  </div>
+  <nav class="bottom-nav" id="nav-detail"></nav>
+</div>
+
+<!-- ═══════════════════════════════════
+     REPORT SCREEN (Sida 3)
+═══════════════════════════════════ -->
+<div id="report-screen" class="screen">
+  <div class="topbar-2row">
+    <div class="row-title" id="report-topbar-title">Rapportmall</div>
+    <div class="row-back">
+      <button class="btn-back" onclick="showScreen('detail-screen')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Tillbaka
+      </button>
+    </div>
+  </div>
+  <div class="scroll-body">
+    <div class="report-content" id="report-content"></div>
+  </div>
+  <nav class="bottom-nav" id="nav-report"></nav>
+</div>
+
+<!-- ═══════════════════════════════════
+     HELP SHEET
+═══════════════════════════════════ -->
+<div id="help-sheet" class="sheet-overlay" onclick="sheetBgClose(event,'help-sheet')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Hjälp</div>
+    <div class="sheet-text"><strong>Operativa snabbval</strong><br>
+      Välj ett fokusområde för att se relevanta lagar och befogenheter.</div>
+    <div class="sheet-text"><strong>ℹ Mer information</strong><br>
+      Tryck på info-knappen vid ett avsnitt för att visa/dölja beskrivning och punkter. Knappen lyser upp när texten är synlig.</div>
+    <div class="sheet-text"><strong>Rapportmall</strong><br>
+      Klicka på avsnittsraden eller urklippsknappen för att öppna rapportmallen. Kryssa i rättsliga grunder – texten genereras automatiskt med tidsstämpel.</div>
+    <div class="sheet-text"><strong>Kopiera</strong><br>
+      Tryck "Kopiera rapportmall" för att kopiera texten till urklippet.</div>
+    <div class="sheet-text"><strong>OBS!</strong><br>
+      Appen är avsedd för utbildningssyfte. Kontrollera alltid gällande lagstiftning och arbetsgivarens rutiner.</div>
+    <button class="sheet-close" onclick="closeSheet('help-sheet')">Stäng</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     FELANMÄLAN SHEET
+═══════════════════════════════════ -->
+<div id="error-sheet" class="sheet-overlay" onclick="sheetBgClose(event,'error-sheet')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Felanmälan</div>
+    <div class="sheet-text">Beskriv vad som är fel eller saknas. Ange gärna vilket avsnitt det gäller.</div>
+    <textarea class="field-textarea" id="error-text" placeholder="Beskriv felet här…"></textarea>
+    <button class="btn-send" onclick="submitError()">Skicka felanmälan</button>
+    <button class="sheet-close" onclick="closeSheet('error-sheet')">Avbryt</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     FAQ SHEET
+═══════════════════════════════════ -->
+<div id="faq-sheet" class="sheet-overlay" onclick="sheetBgClose(event,'faq-sheet')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">FAQ – Vanliga frågor</div>
+    <div id="faq-content"></div>
+    <button class="sheet-close" onclick="closeSheet('faq-sheet')">Stäng</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SJUKVÅRD SHEET
+═══════════════════════════════════ -->
+<div id="med-sheet" class="sheet-overlay" onclick="sheetBgClose(event,'med-sheet')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-title">Sjukvård – Akuta åtgärder</div>
+    <div class="med-section">
+      <div class="med-title">Larma 112</div>
+      <div class="sheet-text">Ring alltid 112 vid misstänkt allvarlig skada eller sjukdom. Ge tydlig platsangivelse och följ operatörens instruktioner.</div>
+    </div>
+    <div class="med-section">
+      <div class="med-title">HLR – Hjärt-lungräddning</div>
+      <ul class="bullet-list">
+        <li>Kontrollera medvetande och andning.</li>
+        <li>Ring 112 – starta HLR om personen är livlös och andas inte normalt.</li>
+        <li>30 bröstkompressioner, 2 inblåsningar (30:2).</li>
+        <li>Använd hjärtstartare (AED) om tillgänglig – slå på och följ röstinstruktionerna.</li>
+        <li>Fortsätt tills ambulans anländer eller personen återhämtar sig.</li>
+      </ul>
+    </div>
+    <div class="med-section">
+      <div class="med-title">Kraftig blödning</div>
+      <ul class="bullet-list">
+        <li>Tryck hårt direkt mot såret med ett rent tygstycke.</li>
+        <li>Håll trycket – lyft inte förbandet.</li>
+        <li>Använd tourniquet vid blödning från arm eller ben om trycket inte räcker.</li>
+      </ul>
+    </div>
+    <div class="med-section">
+      <div class="med-title">Medvetslös person</div>
+      <ul class="bullet-list">
+        <li>Kontrollera andning – om normal: stabilt sidoläge.</li>
+        <li>Håll luftvägen öppen – luta huvudet bakåt, lyft hakan.</li>
+        <li>Övervaka andning kontinuerligt tills ambulans anländer.</li>
+        <li>Starta HLR om andningen upphör.</li>
+      </ul>
+    </div>
+    <div class="sheet-text" style="color:#ef4444;font-weight:600;">OBS: Allmän information. Följ din arbetsgivares rutiner och aktuell utbildning.</div>
+    <button class="sheet-close" onclick="closeSheet('med-sheet')">Stäng</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

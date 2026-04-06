@@ -1,0 +1,98 @@
+Fråga,Svar,Kategori
+Vilka tre kriterier krävs för PL 13?,Stör ordningen; avvärja brott; omedelbar fara,PL 13
+När ska avvisning användas?,När personen kan lämna frivilligt,PL 13
+När ska avlägsnande användas?,När personen vägrar lämna och stör ordningen,PL 13
+När får omhändertagande användas enligt PL 13?,Vid fortsatt störning eller fara,PL 13
+Får du avlägsna en person som skriker i galleria?,Ja enligt PL 13,PL 13
+Får du identifiera vid avlägsnande?,Endast om nödvändigt,PL 13
+När är identitet inte nödvändig vid PL 13?,När identiteten inte påverkar åtgärden,PL 13
+Får du använda våld vid avlägsnande?,Ja enligt PL 10,PL 13
+När ska polis kontaktas vid PL 13?,Vid upprepad störning eller brott,PL 13
+Vad är syftet med PL 13?,Återställa ordning och säkerhet,PL 13
+Får du avlägsna vid brott mot ordningsregler?,Ja om ordningen störs,PL 13
+Vad ska dokumenteras vid PL 13?,Avlägsnande/omhändertagande enligt FAP 670,PL 13
+
+Vad är syftet med visitation enligt PL 19?,Söka vapen eller fastställa identitet,PL 19
+När får du visitera vid avlägsnande?,I anslutning till ingripandet,PL 19
+Får visitation ske efter åtgärden?,Nej,PL 19
+När får du visitera för identitet?,Vid gripande/omhändertagande/avlägsnande,PL 19
+Får du visitera vid envarsgripande?,Ja,PL 19
+Vad gör du med icke-brottsliga föremål?,Tar hand om och återlämnar,PL 19
+När ska visitation ske i enskilt utrymme?,Vid väsentlig omfattning,PL 19
+Får du använda våld vid visitation?,Endast enligt PL 10,PL 19
+När ska visitation dokumenteras?,Vid väsentlig omfattning,PL 19
+Får du visitera för ID-handling?,Ja om nödvändigt,PL 19
+När är ID-visitation inte nödvändig?,Vid avlägsnande utan identitetsbehov,PL 19
+Vad är skyddsvisitation?,Snabb kontroll för farliga föremål,PL 19
+
+När får du använda våld enligt PL 10?,När det är försvarligt och nödvändigt,PL 10
+Får du använda oförsvarligt våld?,Nej,PL 10
+När får handfängsel användas?,Vid flyktfara eller våldsrisk,PL 10
+Vad är proportionalitet?,Åtgärden får inte vara mer ingripande än nödvändigt,PL 10
+Vad är behovsprincipen?,Mildaste medel ska användas,PL 10
+När ska våld rapporteras?,Vid all tvångsanvändning,PL 10
+Får du använda våld vid LOB?,Endast enligt PL 10,PL 10
+När får du använda våld vid PL 13?,Vid motstånd,PL 10
+Vad är nödvärn?,Rätt att avvärja brottsligt angrepp,PL 10
+Vad är nöd?,Åtgärd för att avvärja fara,PL 10
+
+Vilka kriterier krävs för LOB?,Fara för sig själv; andra; kan ej ta hand om sig själv,LOB
+Får du ta alkohol i beslag vid LOB?,Nej,LOB
+Vad gör du efter LOB?,Informera; visitera; kontakta polis; övervaka,LOB
+Får du visitera vid LOB?,Ja enligt PL 19,LOB
+Får du transportera LOB-person?,Ja med tillstånd,LOB
+Får LOB ske i bostad?,Nej,LOB
+Var får LOB ske i flerfamiljshus?,Trapphus och innergård,LOB
+Vad ska tas om hand vid LOB?,Alkohol/berusningsmedel,LOB
+När ska polis kontaktas vid LOB?,Omedelbart,LOB
+Vad ska dokumenteras vid LOB?,Enligt FAP 670,LOB
+Får du använda våld vid LOB?,Endast enligt PL 10,LOB
+Vad är syftet med LOB?,Skydda personen och andra,LOB
+
+När får du ta alkohol i beslag enligt OL 4:4?,Vid förtäring av alkohol >2,25%,Beslag
+Får du beslagta alkohol vid LOB?,Nej,Beslag
+När får du beslagta alkohol enligt 1958 års lag?,Vid brott mot OL 2:16/18 eller OL 4:4,Beslag
+Får du förstöra beslagtagna alkohol?,Endast efter beslut av polis,Beslag
+Vad innebär bevisligen förstöra?,Dokumentera förstörandet,Beslag
+Får du beslagta alkohol från sällskapet?,Ja om de kan antas dricka den,Beslag
+När ska beslag rapporteras?,Omedelbart,Beslag
+Får du beslagta narkotika?,Ja vid konkret innehav,Beslag
+Får du beslagta farliga föremål?,Ja enligt PL 19,Beslag
+Vad är syftet med beslag?,Säkerhet och bevisning,Beslag
+När får du inte ta beslag?,Vid LOB-omhändertagande,Beslag
+Vad gör du efter beslag?,Dokumentera och kontakta polis,Beslag
+
+När får du envarsgripa?,Vid pågående brott eller färsk gärning,Gripande
+Får du gripa vid misstanke om eget bruk?,Nej,Gripande
+Får du gripa vid konkret narkotikainnehav?,Ja,Gripande
+Vad gör du efter gripande?,Visitera; bevaka; kontakta polis,Gripande
+När får du använda våld vid gripande?,Enligt PL 10,Gripande
+Vad är färsk gärning?,Brottet har just begåtts,Gripande
+Vad är pågående brott?,Brottet sker i stunden,Gripande
+Får du gripa vid ordningsstörning?,Endast om brott begås,Gripande
+När ska gripande dokumenteras?,Enligt FAP 670,Gripande
+Vad är syftet med envarsgripande?,Hålla kvar misstänkt tills polis tar över,Gripande
+
+Kräver danstillställning tillstånd?,Nej endast anmälan,Ordningslagen
+Vad får du göra vid brott mot OL 4 kap?,Avvisa eller avlägsna,Ordningslagen
+Får du neka tillträde i kollektivtrafik?,Ja vid berusning eller ordningsrisk,Ordningslagen
+Vad är lättdryck?,≤2,25% alkohol,Ordningslagen
+Vad är folköl?,2,25–3,5%,Ordningslagen
+Vad är starköl?,>3,5%,Ordningslagen
+Får du beslagta alkohol i kollektivtrafik?,Ja,Ordningslagen
+Vad är trafiktjänsteman?,Förare eller ordningsansvarig,Ordningslagen
+Vad är förbjudet på idrottsanläggning?,Beträda plan; kasta föremål; maskering,Ordningslagen
+Vad är straffet för bengaler?,Böter eller fängelse 6 månader,Ordningslagen
+Får OV arbeta högriskmatch utan AMF?,Ja,Ordningslagen
+Vem ansvarar för ordningen vid tillställning?,Arrangören,Ordningslagen
+
+När ska OV underrätta polisen?,Vid förhållanden av betydelse,LOV/FAP
+Vad ska dokumenteras enligt FAP 670?,Beslag; gripande; avlägsnande; omhändertagande,LOV/FAP
+Får polis vara ordningsvakt?,Nej,LOV/FAP
+Kan förordnande återkallas?,Ja,LOV/FAP
+Vad är OV:s huvuduppgift?,Upprätthålla ordning och trygghet,LOV/FAP
+När ska visitation rapporteras?,Vid väsentlig omfattning,LOV/FAP
+När ska beslag rapporteras?,Omedelbart,LOV/FAP
+Vad är LOV 15 §?,Proportionalitet,LOV/FAP
+Vad är LOV 16 §?,Befogenheter,LOV/FAP
+Vad är LOV 17 §?,Tystnadsplikt,LOV/FAP
