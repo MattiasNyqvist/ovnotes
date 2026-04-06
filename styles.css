@@ -48,29 +48,35 @@ body {
   padding-bottom: calc(var(--nav-h) + 16px);
 }
 
+/* ─── SHARED TOPBAR ELEMENTS ─── */
+.topbar-logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 6px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 /* ─── HOME TOP BAR ─── */
 .topbar-home {
-  padding: 14px 16px 6px;
+  padding: 10px 16px 8px;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
   background: transparent;
+  border-bottom: 1px solid var(--border);
 }
 .topbar-home .topbar-title {
   font-size: 20px;
   font-weight: 700;
   color: var(--title-color);
   letter-spacing: 0.5px;
-}
-.topbar-logo {
-  height: 32px;
-  width: auto;
-  margin-left: 8px;
-  border-radius: 4px;
-  object-fit: contain;
+  cursor: pointer;
 }
 
-/* ─── DETAIL / REPORT TOP BAR (2-row) ─── */
-.topbar-2row {
+/* ─── DETAIL / REPORT TOP BAR ─── */
+.topbar-main {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 10px 16px 8px;
@@ -78,18 +84,40 @@ body {
   top: 0;
   z-index: 20;
 }
-.topbar-2row .row-title {
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.topbar-brand .topbar-title {
   font-size: 20px;
   font-weight: 700;
   color: var(--title-color);
-  margin-bottom: 8px;
-  line-height: 1.2;
-  text-align: right;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
-.topbar-2row .row-back {
+.topbar-back-row {
   display: flex;
   align-items: center;
+  margin-bottom: 4px;
 }
+.topbar-crumbs {
+  font-size: 11px;
+  color: var(--text2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 2px 0;
+  line-height: 1.4;
+}
+.crumb-link {
+  color: var(--text2);
+  cursor: pointer;
+}
+.crumb-link:hover { color: var(--primary); }
+.crumb-sep { margin: 0 4px; color: var(--text3); }
+.crumb-current { color: var(--primary); font-weight: 500; }
 .btn-back {
   display: flex; align-items: center; gap: 6px;
   background: none; border: none;
@@ -155,7 +183,27 @@ body {
   display: flex; align-items: center; gap: 10px;
   cursor: pointer; font-size: 15px; font-weight: 600;
 }
-.disc-radio input { width: 20px; height: 20px; accent-color: #fff; cursor: pointer; }
+.disc-radio input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px; height: 22px;
+  border: 2.5px solid rgba(255,255,255,0.9);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+.disc-radio input[type="radio"]:checked::before {
+  content: '';
+  display: block;
+  width: 12px; height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
 #btn-confirm {
   width: 100%; padding: 14px;
   background: #fff; color: #dc2626;
@@ -340,6 +388,26 @@ body {
    REPORT SCREEN (Sida 3)
 ═══════════════════════════════════ */
 .report-content { padding: 14px; }
+
+.nova-info-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--primary-dim);
+  border: 1px solid var(--primary);
+  border-radius: var(--r);
+  padding: 11px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.nova-info-box svg {
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  color: var(--primary);
+  margin-top: 1px;
+}
 
 .cb-list {
   background: var(--surface2);

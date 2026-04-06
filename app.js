@@ -82,7 +82,9 @@ function sheetBgClose(e, id) {
 function submitError() {
   const txt = document.getElementById('error-text').value.trim();
   if (!txt) return;
-  alert('Tack för din felanmälan!\n\n' + txt);
+  const subject = encodeURIComponent('Felanmälan OVNotes');
+  const body    = encodeURIComponent(txt);
+  window.location.href = `mailto:mattias.nyqvist@icloud.com?subject=${subject}&body=${body}`;
   document.getElementById('error-text').value = '';
   closeSheet('error-sheet');
 }
@@ -211,6 +213,11 @@ function openCategory(catId) {
       </div>
     `).join('');
 
+  document.getElementById('detail-crumbs').innerHTML =
+    `<span class="crumb-link" onclick="showScreen('home-screen')">Hem</span>` +
+    `<span class="crumb-sep">›</span>` +
+    `<span class="crumb-current">${cat.name.replace(/\n/g,' ')}</span>`;
+
   showScreen('detail-screen');
 }
 
@@ -252,9 +259,23 @@ function openReport(catId, secId) {
   const sec = cat.sections.find(s => s.id === secId);
   const rpt = sec.report;
 
-  document.getElementById('report-topbar-title').textContent = rpt.title;
+  document.getElementById('report-crumbs').innerHTML =
+    `<span class="crumb-link" onclick="showScreen('home-screen')">Hem</span>` +
+    `<span class="crumb-sep">›</span>` +
+    `<span class="crumb-link" onclick="showScreen('detail-screen')">${cat.name.replace(/\n/g,' ')}</span>` +
+    `<span class="crumb-sep">›</span>` +
+    `<span class="crumb-current">${sec.title}</span>`;
 
   document.getElementById('report-content').innerHTML = `
+    <div class="nova-info-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <span>Kopiera mallen och klistra in i <strong style="color:var(--text)">Nova</strong>. Fyll sedan i resterande uppgifter i systemet.</span>
+    </div>
     <div class="cb-list">
       ${rpt.cbs.map(cb => `
         <label class="cb-item" for="cb-${cb.id}">
