@@ -61,6 +61,13 @@ body {
   color: var(--title-color);
   letter-spacing: 0.5px;
 }
+.topbar-logo {
+  height: 32px;
+  width: auto;
+  margin-left: 8px;
+  border-radius: 4px;
+  object-fit: contain;
+}
 
 /* ─── DETAIL / REPORT TOP BAR (2-row) ─── */
 .topbar-2row {
