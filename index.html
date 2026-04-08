@@ -16,7 +16,7 @@
 ═══════════════════════════════════ -->
 <div id="disclaimer-overlay">
   <div id="disclaimer-box">
-    <h2>OVNotes</h2>
+    <h2>OVNotes - Demo</h2>
     <p>Jag har förstått att appen är endast för utbildning och att jag använder den helt på eget ansvar.</p>
     <div class="disc-radios">
       <label class="disc-radio"><input type="radio" name="disc" value="ja" id="disc-ja"> JA</label>
@@ -32,7 +32,7 @@
 <div id="home-screen" class="screen">
   <div class="topbar-home">
     <img src="resources/images/Logo75x75Transparent.png" class="topbar-logo" alt="logo">
-    <span class="topbar-title" onclick="showScreen('home-screen')">OVNotes</span>
+    <span class="topbar-title" onclick="showScreen('home-screen')">OVNotes - Demo</span>
   </div>
   <div class="scroll-body">
     <div class="home-content">
@@ -57,13 +57,13 @@
 </div>
 
 <!-- ═══════════════════════════════════
-     DETAIL SCREEN (Sida 2)
+     DETAIL SCREEN (Page 2)
 ═══════════════════════════════════ -->
 <div id="detail-screen" class="screen">
   <div class="topbar-main">
     <div class="topbar-brand">
       <img src="resources/images/Logo75x75Transparent.png" class="topbar-logo" alt="logo">
-      <span class="topbar-title" onclick="showScreen('home-screen')">OVNotes</span>
+      <span class="topbar-title" onclick="showScreen('home-screen')">OVNotes Demo</span>
     </div>
     <div class="topbar-back-row">
       <button class="btn-back" onclick="showScreen('home-screen')">
@@ -83,13 +83,13 @@
 </div>
 
 <!-- ═══════════════════════════════════
-     REPORT SCREEN (Sida 3)
+     REPORT SCREEN (Page 3)
 ═══════════════════════════════════ -->
 <div id="report-screen" class="screen">
   <div class="topbar-main">
     <div class="topbar-brand">
       <img src="resources/images/Logo75x75Transparent.png" class="topbar-logo" alt="logo">
-      <span class="topbar-title" onclick="showScreen('home-screen')">OVNotes</span>
+      <span class="topbar-title" onclick="showScreen('home-screen')">OVNotes Demo</span>
     </div>
     <div class="topbar-back-row">
       <button class="btn-back" onclick="showScreen('detail-screen')">
@@ -130,7 +130,7 @@
 </div>
 
 <!-- ═══════════════════════════════════
-     FELANMÄLAN SHEET
+     ERROR REPORT SHEET
 ═══════════════════════════════════ -->
 <div id="error-sheet" class="sheet-overlay" onclick="sheetBgClose(event,'error-sheet')">
   <div class="sheet">
@@ -156,7 +156,7 @@
 </div>
 
 <!-- ═══════════════════════════════════
-     SJUKVÅRD SHEET
+     MEDICAL SHEET
 ═══════════════════════════════════ -->
 <div id="med-sheet" class="sheet-overlay" onclick="sheetBgClose(event,'med-sheet')">
   <div class="sheet">
@@ -198,7 +198,7 @@
   </div>
 </div>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script src="data.js?v=3"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>

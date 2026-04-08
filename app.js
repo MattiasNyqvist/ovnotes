@@ -77,7 +77,7 @@ function sheetBgClose(e, id) {
 }
 
 /* ═══════════════════════════════════════════════════
-   FELANMÄLAN
+   ERROR REPORT
 ═══════════════════════════════════════════════════ */
 function submitError() {
   const txt = document.getElementById('error-text').value.trim();
@@ -115,25 +115,47 @@ function doSearch(q) {
     });
   });
 
+  const faqHits = FAQ_ITEMS.filter(item =>
+    (item.q + ' ' + item.a + ' ' + item.cat).toLowerCase().includes(q)
+  );
+
   grid.style.display = 'none';
   document.querySelector('.section-label').style.display = 'none';
   resultsEl.style.display = 'block';
 
-  if (hits.length === 0) {
+  if (hits.length === 0 && faqHits.length === 0) {
     resultsEl.innerHTML = `<div style="color:var(--text2);padding:16px 4px;font-size:12px;">Inga träffar för "${q}"</div>`;
     return;
   }
 
-  resultsEl.innerHTML = hits.map(({ cat, sec }) => `
-    <div class="sec-block" style="margin-bottom:8px;">
-      <div class="sec-row">
-        <div class="sec-row-main" onclick="openReport('${cat.id}','${sec.id}')">
-          <div class="sec-title">${sec.title}</div>
-          <div class="sec-law">${cat.name.replace(/\n/g,' ')} · ${sec.lawTag}</div>
+  let html = '';
+
+  if (hits.length > 0) {
+    html += `<div class="search-group-label">Befogenheter</div>`;
+    html += hits.map(({ cat, sec }) => `
+      <div class="sec-block" style="margin-bottom:8px;">
+        <div class="sec-row">
+          <div class="sec-row-main" onclick="openReport('${cat.id}','${sec.id}')">
+            <div class="sec-title">${sec.title}</div>
+            <div class="sec-law">${cat.name.replace(/\n/g,' ')} · ${sec.lawTag}</div>
+          </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
+  }
+
+  if (faqHits.length > 0) {
+    html += `<div class="search-group-label" style="margin-top:${hits.length ? '12px' : '0'}">FAQ</div>`;
+    html += faqHits.map(item => `
+      <div class="faq-hit-card" onclick="openSheet('faq-sheet')">
+        <div class="faq-hit-q">${item.q}</div>
+        <div class="faq-hit-a">${item.a}</div>
+        <div class="faq-hit-cat">${item.cat}</div>
+      </div>
+    `).join('');
+  }
+
+  resultsEl.innerHTML = html;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -248,7 +270,7 @@ function toggleInfo(catId, secId) {
 }
 
 /* ═══════════════════════════════════════════════════
-   OPEN REPORT SCREEN (Sida 3)
+   OPEN REPORT SCREEN (Page 3)
 ═══════════════════════════════════════════════════ */
 function openReport(catId, secId) {
   currentCatId    = catId;
